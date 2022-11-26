@@ -9,7 +9,7 @@ If you are looking for a quick lab setup to play with ansible then docker is the
 
 ### Lab Setup
 
-This lab setup has 4 node where one node will act as controller and three nodes will act as managed nodes.
+This lab setup has 4 nodes where one node will act as controller and three nodes will act as managed nodes.
 
 | NODE TYPE | IMAGE | IMAGE NAME| CONTAINER NAME | NETWORK |
 |:-----:|:-----:|:----:|:-----:|:----:|
@@ -25,7 +25,7 @@ Image and container configuration can be found in `docker-compose.yml` file.
 Clone the repository to your machine.
 
 ```sh
-$ git clone 
+$ https://github.com/KarthickSudhakar/Docker_Ansible_lab_Setup.git 
 ```
 
 Run the following command which will start pulling the base image's and build the containers.
