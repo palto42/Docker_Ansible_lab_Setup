@@ -2,8 +2,8 @@ version: "3.7"
 services:
   
   # Controller node is where ansible will be installed through bootstrap.sh
-  # Image will be created with name "anslab/controller:v1"
-  # container will be created with name "controller"
+  # Image will be created with name "anslab/controller"
+  # container will be created with name "anscontroller"
   controller:
     build: 
       context: .
@@ -14,7 +14,7 @@ services:
       - ansible_network
     pull_policy: build
 
-  # Managed node is based on the image created from controller
+  # Managed node is based on the image created from anslab/controller
   # container will be created with name "ansubuntu"
   ubuntu:
     image: anslab/controller
