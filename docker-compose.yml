@@ -8,25 +8,45 @@ services:
     build: 
       context: .
       dockerfile: ubuntu/Dockerfile
-    image: anslab/controller:v1
-    container_name: controller
-    volumes:
-      - /home/karthick/Karthick_Root/Work/Ansible/vagrant_lab_sync/playbooks:/project
+    image: anslab/controller
+    container_name: anscontroller
     networks:
       - ansible_network
     pull_policy: build
 
   # Managed node is based on the image created from controller
-  # container will be created with name "managed1"
-  managed1:
-    image: anslab/controller:v1
-    container_name: managed1
+  # container will be created with name "ansubuntu"
+  ubuntu:
+    image: anslab/controller
+    container_name: ansubuntu
     networks:
       - ansible_network
     depends_on:
       - controller
     pull_policy: never
 
+  # container will be created with name "ansalpine"
+  alpine:
+    build: 
+      context: .
+      dockerfile: alpine/Dockerfile
+    image: anslab/alpine
+    container_name: ansalpine
+    networks:
+      - ansible_network
+    pull_policy: build
+
+  # container will be created with name "ansrocky"
+  rocky:
+    build: 
+      context: .
+      dockerfile: rocky/Dockerfile
+    image: anslab/rocky
+    container_name: ansrocky
+    networks:
+      - ansible_network
+    pull_policy: build
+    
 networks:
   ansible_network:
     driver: bridge

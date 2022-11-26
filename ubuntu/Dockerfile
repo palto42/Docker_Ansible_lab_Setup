@@ -1,8 +1,8 @@
 FROM ubuntu:latest
-LABEL AUTHOR "Nixzie Author"
+LABEL AUTHOR "karthick"
 
 # Install packages
-RUN apt update && apt install -y vim curl wget python3 python3-pip openssh-server sshpass sudo locate net-tools iputils-ping
+RUN apt update && apt install -y vim curl wget python3 python3-pip openssh-server sshpass sudo locate net-tools iputils-ping jq
 
 # Create ANSUSER, .ssh directory and set ownsership,permission
 RUN useradd -ms /bin/bash ansuser \
@@ -18,7 +18,7 @@ RUN echo "root:password123" | chpasswd
 RUN echo "ansuser:password123" | chpasswd
 
 # This bootstrap script will install ansible, generate/distribute ssh keys and run sameple ansible command to test connectivity.
-COPY ["bootstrap.sh", "/home/ansuser/"]
+COPY ["script/bootstrap.sh", "/home/ansuser/"]
 
 # Allow root to login via SSH
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config \
