@@ -10,6 +10,8 @@ services:
       dockerfile: ubuntu/Dockerfile
     image: anslab/controller
     container_name: anscontroller
+#     volumes:
+#       - /home/nixzie/Documents/project:/home/ansuser/project
     networks:
       - ansible_network
     pull_policy: build
