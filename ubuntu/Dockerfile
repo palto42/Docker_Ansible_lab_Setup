@@ -1,5 +1,10 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 LABEL AUTHOR "karthick"
+
+# Set the proxy as a build argument (default empty)
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG NO_PROXY
 
 # Install packages
 RUN apt update && apt install -y vim curl wget python3 python3-pip openssh-server sshpass sudo locate net-tools iputils-ping jq

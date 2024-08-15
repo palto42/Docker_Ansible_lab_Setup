@@ -1,10 +1,15 @@
 FROM rockylinux:9
 LABEL AUTHOR "Karthick"
 
+# Set the proxy as a build argument (default empty)
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG NO_PROXY
+
 # Install packages
 RUN dnf upgrade --refresh -y \
     && dnf install epel-release -y\
-    && dnf install -y vim curl wget openssh-server jq net-tools iputils python3 python3-pip
+    && dnf install -y --allowerasing vim curl wget openssh-server jq net-tools iputils python3 python3-pip
 
 # Create ANSUSER, .ssh directory and set ownsership,permission
 RUN adduser -s /bin/sh -G wheel ansuser\

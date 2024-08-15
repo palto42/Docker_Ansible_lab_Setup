@@ -7,6 +7,10 @@ services:
   controller:
     build: 
       context: .
+      args:
+        HTTP_PROXY: ${DOCKER_HTTP_PROXY}
+        HTTPS_PROXY: ${DOCKER_HTTPS_PROXY}
+        NO_PROXY: ${DOCKER_NO_PROXY}
       dockerfile: ubuntu/Dockerfile
     image: anslab/controller
     container_name: anscontroller
@@ -31,6 +35,10 @@ services:
   alpine:
     build: 
       context: .
+      args:
+        HTTP_PROXY: ${DOCKER_HTTP_PROXY}
+        HTTPS_PROXY: ${DOCKER_HTTPS_PROXY}
+        NO_PROXY: ${DOCKER_NO_PROXY}
       dockerfile: alpine/Dockerfile
     image: anslab/alpine
     container_name: ansalpine
@@ -42,6 +50,10 @@ services:
   rocky:
     build: 
       context: .
+      args:
+        HTTP_PROXY: ${DOCKER_HTTP_PROXY}
+        HTTPS_PROXY: ${DOCKER_HTTPS_PROXY}
+        NO_PROXY: ${DOCKER_NO_PROXY}
       dockerfile: rocky/Dockerfile
     image: anslab/rocky
     container_name: ansrocky

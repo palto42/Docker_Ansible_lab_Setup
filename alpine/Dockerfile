@@ -1,6 +1,11 @@
 FROM alpine:latest
 LABEL AUTHOR "Karthick"
 
+# Set the proxy as a build argument (default empty)
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG NO_PROXY
+
 # Install packages
 RUN apk update && apk add vim curl wget py3-pip openssh sudo net-tools iputils jq
 
